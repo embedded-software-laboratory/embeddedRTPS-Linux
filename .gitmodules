@@ -1,8 +1,6 @@
 [submodule "rtps"]
 	path = rtps
 	url = git@git.rwth-aachen.de:CPM/Project/UNICARagil/Students/b-nnen/embedded-rtps.git
-	branch = linux-latency-test
 [submodule "rtps-tests"]
 	path = rtps-tests
 	url = git@git.rwth-aachen.de:CPM/Project/UNICARagil/Students/b-nnen/embedded-rtps-test-suite.git
-	branch = linux-latency-test
