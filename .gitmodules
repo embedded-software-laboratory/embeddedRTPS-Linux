@@ -7,3 +7,6 @@
 [submodule "fastdds/foonathan_memory_vendor"]
 	path = fastdds/foonathan_memory_vendor
 	url = https://github.com/eProsima/foonathan_memory_vendor
+[submodule "tests/thirdparty/googletest"]
+	path = tests/thirdparty/googletest
+	url = https://github.com/google/googletest.git
