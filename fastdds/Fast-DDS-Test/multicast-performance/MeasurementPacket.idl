@@ -1,0 +1,7 @@
+struct MeasurementPacket
+{
+	unsigned short p_type;
+	string p_textmessage;
+    unsigned long id;
+    long timestamp;
+};

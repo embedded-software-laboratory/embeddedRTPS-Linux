@@ -1,6 +1,9 @@
 [submodule "rtps"]
-	path = rtps
-	url = git@git.rwth-aachen.de:CPM/Project/UNICARagil/Students/b-nnen/embedded-rtps.git
-[submodule "rtps-tests"]
-	path = rtps-tests
-	url = git@git.rwth-aachen.de:CPM/Project/UNICARagil/Students/b-nnen/embedded-rtps-test-suite.git
+	path = embeddedrtps
+	url = git@git.rwth-aachen.de:CPM/Project/UNICARagil/Software/asoa/embeddedrtps/embeddedrtps.git
+[submodule "fastdds/Fast-DDS"]
+	path = fastdds/Fast-DDS
+	url = https://github.com/eProsima/Fast-DDS
+[submodule "fastdds/foonathan_memory_vendor"]
+	path = fastdds/foonathan_memory_vendor
+	url = https://github.com/eProsima/foonathan_memory_vendor
