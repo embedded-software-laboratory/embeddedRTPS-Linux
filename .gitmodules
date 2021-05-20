@@ -1,6 +1,6 @@
 [submodule "rtps"]
 	path = embeddedrtps
-	url = git@git.rwth-aachen.de:CPM/Project/UNICARagil/Software/asoa/embeddedrtps/embeddedrtps.git
+	url = git@github.com:embedded-software-laboratory/embeddedRTPS.git
 [submodule "fastdds/Fast-DDS"]
 	path = fastdds/Fast-DDS
 	url = https://github.com/eProsima/Fast-DDS
