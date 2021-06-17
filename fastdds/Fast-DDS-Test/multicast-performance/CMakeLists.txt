@@ -24,6 +24,8 @@ message(STATUS "Configuring Multicast Performance Test...")
 file(GLOB MULTICASTPERFORMANCE_SOURCES_CXX "*.cxx")
 file(GLOB MULTICASTPERFORMANCE_SOURCES_CPP "*.cpp")
 
+find_package(foonathan_memory REQUIRED)
+
 add_executable(MulticastPerformance_fastdds ${MULTICASTPERFORMANCE_SOURCES_CXX} ${MULTICASTPERFORMANCE_SOURCES_CPP})
 target_link_libraries(MulticastPerformance_fastdds fastrtps fastcdr foonathan_memory)
 install(TARGETS MulticastPerformance_fastdds

@@ -24,6 +24,9 @@ message(STATUS "Configuring HelloWorld example...")
 file(GLOB HELLOWORLD_EXAMPLE_SOURCES_CXX "*.cxx")
 file(GLOB HELLOWORLD_EXAMPLE_SOURCES_CPP "*.cpp")
 
+find_package(foonathan_memory REQUIRED)
+
+
 add_executable(HelloWorldExample ${HELLOWORLD_EXAMPLE_SOURCES_CXX} ${HELLOWORLD_EXAMPLE_SOURCES_CPP})
 target_link_libraries(HelloWorldExample fastrtps fastcdr foonathan_memory)
 install(TARGETS HelloWorldExample
