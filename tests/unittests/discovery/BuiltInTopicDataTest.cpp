@@ -39,7 +39,7 @@ protected:
 
     ucdrBuffer buffer;
 
-    rtps::Locator expectedUnicastLocator = rtps::Locator::createUDPv4Locator(192,168,0,45,7411);
+    rtps::Locator expectedUnicastLocator = rtps::Locator::createUDPv4Locator(192,168,0,42,7411);
     rtps::Guid_t expectedGuid = {{0x01,0x0f,0x00,0x2d, 0x08, 0x58,0x00,0x00,0x00,0x00,0x00,0x00},rtps::ENTITYID_BUILD_IN_PARTICIPANT};
     char expectedTopicName[16] = "HelloWorldTopic";
     char expectedTypeName[11] = "HelloWorld";
@@ -74,7 +74,6 @@ TEST_F(SomeTopicData, readFromUcdrBuffer_setsCorrectValues){
     EXPECT_THAT(expectedTypeName, ::testing::ElementsAreArray(topicData.typeName, sizeTypeName));
     constexpr auto sizeTopicName = sizeof(expectedTopicName)/ sizeof(expectedTopicName[0]);
     EXPECT_THAT(expectedTopicName, ::testing::ElementsAreArray(topicData.topicName, sizeTopicName));
-
     EXPECT_EQ(topicData.reliabilityKind, expectedReliability);
     EXPECT_EQ(topicData.unicastLocator.getIp4Address().addr, expectedUnicastLocator.getIp4Address().addr);
     EXPECT_EQ(topicData.unicastLocator.port, expectedUnicastLocator.port);
