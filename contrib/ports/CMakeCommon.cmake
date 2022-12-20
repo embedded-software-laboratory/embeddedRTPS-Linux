@@ -46,6 +46,8 @@ set(LWIP_COMPILER_FLAGS_GNU_CLANG
     -Wmissing-prototypes
     -Waggregate-return
     -Wlogical-not-parentheses
+    -fsanitize=address
+    -static-libasan
 )
 
 if (NOT LWIP_HAVE_MBEDTLS)

@@ -25,10 +25,11 @@ void Receiver::prepareRTPS(){
         return;
     }
     m_domain.completeInit();
-    mp_dataReader = m_domain.createReader(*part, "HelloWorldTopic", "HelloWorld", true, transformIP4ToU32(239,255,0,2));
+    mp_dataReader = m_domain.createReader(*part, "HelloWorldTopic", "HelloWorld", false, transformIP4ToU32(239,255,0,2));
     
     if(mp_dataReader == nullptr){
         std::cout << "Failed to create endpoints.\n";
+        std::terminate();
         return;
     }
 
@@ -65,5 +66,8 @@ void Receiver::responderCallback(const rtps::ReaderCacheChange& cacheChange){
 }
 
 void Receiver::run(){
-    while(true); // Just serve all the time
+    while(true){
+      m_domain.printInfo();
+      sleep(1);
+    }
 }

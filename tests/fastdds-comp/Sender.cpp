@@ -34,18 +34,19 @@ void Sender::prepareRTPS(){
         return;
     }
     m_domain.completeInit();
-    mp_dataWriter = m_domain.createWriter(*part, "HelloWorldTopic", "HelloWorld", true);
+    mp_dataWriter = m_domain.createWriter(*part, "HelloWorldTopic", "HelloWorld", false);
 
     if(mp_dataWriter == nullptr){
         std::cout << "Failed to create endpoints.\n";
+        std::terminate();
         return;
     }
 
 }
 
 void Sender::run() {
-    std::cout << "Waiting 15 sec for startup...." << '\n';
-    sys_msleep(5000); // Wait for initialization
+    std::cout << "Waiting 2.5 sec for startup...." << '\n';
+    sys_msleep(2500); // Wait for initialization
     std::cout << "Go!" << '\n';
 
     printf("Sending HelloWorldPackets: \n", m_numSamples);
@@ -54,7 +55,8 @@ void Sender::run() {
         runWithIndex(m_index);
         printf("Hello WorldPacket sent: Index %d \n", m_index);
         m_index++;
-        sys_msleep(100);
+        sys_msleep(1000);
+        m_domain.printInfo();
     }
 }
 

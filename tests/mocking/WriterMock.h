@@ -9,7 +9,7 @@
 #include <gmock/gmock.h>
 
 #include "rtps/entities/Writer.h"
-#include "rtps/storages/HistoryCache.h"
+#include "rtps/storages/SimpleHistoryCache.h"
 
 class WriterMock : public rtps::Writer{
 public:

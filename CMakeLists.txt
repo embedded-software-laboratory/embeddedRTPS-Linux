@@ -1,7 +1,7 @@
 project(embeddedRTPS-Desktop)
 cmake_minimum_required(VERSION 3.10)
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_FLAGS "-O0 -Wall -Wextra -Wnon-virtual-dtor -Wpedantic -fno-non-call-exceptions -fno-exceptions -fPIC -fno-rtti")
+set(CMAKE_CXX_FLAGS "-O0 -g -Wall -Wextra -Wnon-virtual-dtor -Wpedantic -fsanitize=address -static-libasan -fPIC -fno-rtti")
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
@@ -44,6 +44,7 @@ target_compile_definitions(lwip PRIVATE ${LWIP_DEFINITIONS})
 target_link_libraries(lwip ${LWIP_SANITIZER_LIBS}  lwipcontribaddons lwipallapps lwipcore lwipcontribportunix)
 
 # embeddedRTPS
+add_compile_definitions(POSIX)
 add_library(embeddedrtps "")
 include_directories(include)
 include_directories(include/lwip)
@@ -63,10 +64,13 @@ target_sources(embeddedrtps
         "embeddedrtps/src/entities/Domain.cpp"
         "embeddedrtps/src/entities/Participant.cpp"
         "embeddedrtps/src/entities/StatelessReader.cpp"
+        "embeddedrtps/src/entities/Reader.cpp"
+        "embeddedrtps/src/entities/Writer.cpp"
+        "embeddedrtps/src/utils/Lock.cpp"
+
+
         "embeddedrtps/src/messages/MessageReceiver.cpp"
         "embeddedrtps/src/messages/MessageTypes.cpp"
-        "embeddedrtps/src/storages/HistoryCache.cpp"
-        "embeddedrtps/src/storages/SimpleHistoryCache.cpp"
         "embeddedrtps/src/storages/PBufWrapper.cpp"
 )
 
@@ -77,4 +81,4 @@ target_link_libraries(embeddedrtps PRIVATE lwip microcdr)
 add_subdirectory(tests)
 
 # FastDDS
-add_subdirectory(fastdds)
+# add_subdirectory(fastdds)

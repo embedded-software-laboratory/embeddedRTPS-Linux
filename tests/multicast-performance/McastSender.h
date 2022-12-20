@@ -40,8 +40,8 @@ namespace rtps {
             uint8_t numberOfResponses;
             uint8_t numberOfPartners;
             uint32_t currentId;
-            sys_mutex_t m_mutex;
-            sys_sem_t m_sem;
+            Lock_t m_mutex;
+            Lock_t m_sem;
 
             #ifdef USE_INTERNAL_CLOCK
             std::chrono::steady_clock::time_point m_time;

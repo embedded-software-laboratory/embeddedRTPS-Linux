@@ -29,9 +29,13 @@ static const uint32_t numSamples = 10;
 void startProgram();
 int startPrioritizedProgram();
 
+
+
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wmissing-noreturn"
 int main(int argc,char* argv[]) {
+
     if(argc != 2){ // main + 1 argument
         std::cout << std::string(R"("Please execute with argument "publisher" or "subscriber")") << std::endl;
         return -1;
